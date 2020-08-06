@@ -14,7 +14,7 @@
 * Disallow quote (') in domain
 
 ## Version 3.2.1
-* Fix loading of blacklisted domains
+* Fix loading of blocklisted domains
 
 ## Version 3.2.0
 * Add option to disallow dotted email addresses https://github.com/micke/valid_email2/pull/146
@@ -53,10 +53,10 @@ Relax the restrictions on domain validation so that we allow unicode domains and
 other non ASCII domains while still disallowing the domains we blocked before.
 
 ## Version 3.0.0
-* Moved __and__ renamed blacklist and whitelist and disposable_emails. Moved from the vendor directory to
+* Moved __and__ renamed blocklist and allowlist and disposable_emails. Moved from the vendor directory to
   the config directory.  
-  `vendor/blacklist.yml` -> `config/blacklisted_email_domains.yml`  
-  `vendor/whitelist.yml` -> `config/whitelisted_email_domains.yml`  
+  `vendor/blocklist.yml` -> `config/blocklisted_email_domains.yml`  
+  `vendor/allowlist.yml` -> `config/allowlisted_email_domains.yml`  
   `vendor/disposable_emails.yml` -> `config/disposable_email_domains.yml`
 
 * Test if the MX server that a domain resolves to is present in the lists of
@@ -68,7 +68,7 @@ other non ASCII domains while still disallowing the domains we blocked before.
 Update disposable emails (https://github.com/micke/valid_email2/pull/122)
 
 ## Version 2.3.0
-Add whitelist feature (https://github.com/lisinge/valid_email2/pull/119)  
+Add allowlist feature (https://github.com/lisinge/valid_email2/pull/119)  
 Update disposable emails (https://github.com/lisinge/valid_email2/pull/116)
 
 ## Version 2.2.3
@@ -189,7 +189,7 @@ Removed fastmail.fm from the disposable email list (https://github.com/lisinge/v
 
 ## Version 1.1.11
 Removed poczta.onet.pl from the disposable_emails list (https://github.com/lisinge/valid_email2/issues/34)
-Added a whitelist to the internal pull_mailchecker_emails so that poczta.onet.pl
+Added a allowlist to the internal pull_mailchecker_emails so that poczta.onet.pl
 can't sneak back in again.
 
 ## Version 1.1.10
@@ -230,7 +230,7 @@ Added more disposable email domains (https://github.com/lisinge/valid_email2/pul
 Added more disposable email domains (https://github.com/lisinge/valid_email2/pull/9 and https://github.com/lisinge/valid_email2/pull/10)
 
 ## Version 1.1.0
-Added support to locally blacklist emails
+Added support to locally blocklist emails
 
 ## Version 1.0.0
 

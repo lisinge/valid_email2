@@ -58,14 +58,14 @@ To validate that the domain is not a disposable email (checks domain only, does 
 validates :email, 'valid_email_2/email': { disposable_domain: true }
 ```
 
-To validate that the domain is not a disposable email or a disposable email but whitelisted (under config/whitelisted_email_domains.yml):
+To validate that the domain is not a disposable email or a disposable email but allowlisted (under config/allowlisted_email_domains.yml):
 ```ruby
-validates :email, 'valid_email_2/email': { disposable_with_whitelist: true }
+validates :email, 'valid_email_2/email': { disposable_with_allowlist: true }
 ```
 
-To validate that the domain is not blacklisted (under config/blacklisted_email_domains.yml):
+To validate that the domain is not blocklisted (under config/blocklisted_email_domains.yml):
 ```ruby
-validates :email, 'valid_email_2/email': { blacklist: true }
+validates :email, 'valid_email_2/email': { blocklist: true }
 ```
 
 To validate that email is not subaddressed:
@@ -134,8 +134,8 @@ This gem requires Rails 3.2 or higher. It is tested against Rails 3, 4, 5 and 6 
 In version v3.0.0 I decided to move __and__ rename the config files from the
 vendor directory to the config directory. That means:
 
-`vendor/blacklist.yml` -> `config/blacklisted_email_domains.yml`  
-`vendor/whitelist.yml` -> `config/whitelisted_email_domains.yml`
+`vendor/blocklist.yml` -> `config/blocklisted_email_domains.yml`  
+`vendor/allowlist.yml` -> `config/allowlisted_email_domains.yml`
 
 The `disposable` validation has been improved with a `mx` check. Apply the
 stub, as noted in the Test environment section, if your tests have slowed

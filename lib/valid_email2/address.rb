@@ -69,12 +69,12 @@ module ValidEmail2
       valid? && mx_server_is_in?(ValidEmail2.disposable_emails)
     end
 
-    def whitelisted?
-      domain_is_in?(ValidEmail2.whitelist)
+    def allowlisted?
+      domain_is_in?(ValidEmail2.allowlist)
     end
 
-    def blacklisted?
-      valid? && domain_is_in?(ValidEmail2.blacklist)
+    def blocklisted?
+      valid? && domain_is_in?(ValidEmail2.blocklist)
     end
 
     def valid_mx?
