@@ -9,6 +9,7 @@ module ValidEmail2
     PROHIBITED_DOMAIN_CHARACTERS_REGEX = /[+!_\/\s'`]/
     DEFAULT_RECIPIENT_DELIMITER = '+'.freeze
     DOT_DELIMITER = '.'.freeze
+    SPECIAL_CHARS = '#\!$%\'*+-/=?^`.{|}~'.freeze
 
     def self.prohibited_domain_characters_regex
       @prohibited_domain_characters_regex ||= PROHIBITED_DOMAIN_CHARACTERS_REGEX
@@ -56,6 +57,10 @@ module ValidEmail2
 
     def dotted?
       valid? && address.local.include?(DOT_DELIMITER)
+    end
+
+    def contain_special_chars?
+      valid? && address_contain_special_chars?(address.local, SPECIAL_CHARS)
     end
 
     def subaddressed?
@@ -121,6 +126,10 @@ module ValidEmail2
       return false if email.nil?
 
       email.each_char.any? { |char| char.bytesize > 1 }
+    end
+
+    def address_contain_special_chars?(address, special_chars)
+      special_chars.chars.any? { |char| address.include?(char) }
     end
 
     def mx_servers

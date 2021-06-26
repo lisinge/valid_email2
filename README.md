@@ -88,6 +88,11 @@ To validate that email does not contain a dot before the @:
 validates :email, 'valid_email_2/email': { disallow_dotted: true }
 ```
 
+To validate that email does not contain any of the special chars (``#!$%'*+-/=?^`.{|}~``):
+```ruby
+validates :email, 'valid_email_2/email': { disallow_special_chars: true }
+```
+
 To validate create your own custom message:
 ```ruby
 validates :email, 'valid_email_2/email': { message: "is not a valid email" }

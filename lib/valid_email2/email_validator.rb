@@ -20,6 +20,10 @@ module ValidEmail2
         error(record, attribute) && return if addresses.any?(&:dotted?)
       end
 
+      if options[:disallow_special_chars]
+        error(record, attribute) && return if addresses.any?(&:contain_special_chars?)
+      end
+
       if options[:disallow_subaddressing]
         error(record, attribute) && return if addresses.any?(&:subaddressed?)
       end
